@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.navigationjetpack.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/gotoBrowser"
+            app:destination="@id/viewBrowserFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/gotoCamera"
+            app:destination="@id/viewCameraFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/gotoCalculo"
+            app:destination="@id/viewCaculateFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/viewBrowserFragment"
+        android:name="com.example.navigationjetpack.ViewBrowserFragment"
+        android:label="fragment_view_browser"
+        tools:layout="@layout/fragment_view_browser" />
+    <fragment
+        android:id="@+id/viewCameraFragment"
+        android:name="com.example.navigationjetpack.ViewCameraFragment"
+        android:label="fragment_view_camera"
+        tools:layout="@layout/fragment_view_camera" />
+    <fragment
+        android:id="@+id/viewCaculateFragment"
+        android:name="com.example.navigationjetpack.ViewCaculateFragment"
+        android:label="fragment_view_caculate"
+        tools:layout="@layout/fragment_view_caculate" >
+        <action
+            android:id="@+id/gotoDiv"
+            app:destination="@id/viewDivisionFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/gotoResta"
+            app:destination="@id/viewRestaFragmenty"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"/>
+        <action
+            android:id="@+id/gotoSuma"
+            app:destination="@id/viewSumaFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"/>
+    </fragment>
+    <fragment
+        android:id="@+id/viewSumaFragment"
+        android:name="com.example.navigationjetpack.ViewSumaFragment"
+        android:label="fragment_view_suma"
+        tools:layout="@layout/fragment_view_suma" />
+    <fragment
+        android:id="@+id/viewRestaFragmenty"
+        android:name="com.example.navigationjetpack.ViewRestaFragmenty"
+        android:label="fragment_view_resta"
+        tools:layout="@layout/fragment_view_resta" />
+    <fragment
+        android:id="@+id/viewDivisionFragment"
+        android:name="com.example.navigationjetpack.ViewDivisionFragment"
+        android:label="fragment_view_division"
+        tools:layout="@layout/fragment_view_division" />
+</navigation>
