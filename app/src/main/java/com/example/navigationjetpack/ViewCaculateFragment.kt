@@ -42,27 +42,32 @@ class ViewCaculateFragment : Fragment(), View.OnClickListener {
         when(v!!.id){
             R.id.btCalcular -> {
 
-                    if (rbSumar.isChecked){
+                if(!rbSumar.isChecked || !rbRestar.isChecked || !rbDividir.isChecked){
+                    Toast.makeText(context, "Inserta los números y presiona calcular",Toast.LENGTH_SHORT).show()
+                }else {
+                    if (rbSumar.isChecked) {
                         val bundle = Bundle()
                         resultado = num1 + num2
                         bundle.putDouble("suma", resultado)
-                        navController!!.navigate(R.id.gotoSuma,bundle)
+                        navController!!.navigate(R.id.gotoSuma, bundle)
 
                     }
-                    if(rbRestar.isChecked){
+                    if (rbRestar.isChecked) {
                         val bundle = Bundle()
                         resultado = num1 - num2
                         bundle.putDouble("resta", resultado)
-                        navController!!.navigate(R.id.gotoResta,bundle)
+                        navController!!.navigate(R.id.gotoResta, bundle)
 
                     }
-                    if(rbDividir.isChecked){
+                    if (rbDividir.isChecked) {
                         val bundle = Bundle()
                         resultado = num1 / num2
-                        bundle.putDouble("div",resultado)
-                        navController!!.navigate(R.id.gotoDiv,bundle)
+                        bundle.putDouble("div", resultado)
+                        navController!!.navigate(R.id.gotoDiv, bundle)
 
                     }
+
+                }
 
             }
 

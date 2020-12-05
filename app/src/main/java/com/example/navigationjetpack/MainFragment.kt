@@ -13,6 +13,8 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainFragment : Fragment(), View.OnClickListener{
     var navController: NavController? = null
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,5 +39,7 @@ class MainFragment : Fragment(), View.OnClickListener{
 
         }
     }
+
+
 
 }
