@@ -2,6 +2,7 @@ package com.example.navigationjetpack
 
 import android.app.Activity
 import android.app.Activity.RESULT_OK
+import android.app.VoiceInteractor
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -24,6 +25,8 @@ import java.util.jar.Manifest
 class ViewCameraFragment : Fragment(){
 
     val CAPTURA = 1
+    val PICK = 2
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,12 +46,24 @@ class ViewCameraFragment : Fragment(){
                 e.message
             }
         }
+
+        btCargar.setOnClickListener {
+            val galleryIntent = Intent(Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            startActivityForResult(galleryIntent, PICK)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CAPTURA && resultCode == RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             imageView.setImageBitmap(imageBitmap)
+        }
+
+        if (requestCode == PICK && resultCode == RESULT_OK){
+            //val imageBitmap = data?.extras?.get("data") as Bitmap
+            //imageView.setImageBitmap(imageBitmap)
+            imageView.setImageURI(data?.data)
         }
     }
 
