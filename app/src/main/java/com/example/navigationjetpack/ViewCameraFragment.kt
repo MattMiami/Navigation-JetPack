@@ -61,8 +61,6 @@ class ViewCameraFragment : Fragment(){
         }
 
         if (requestCode == PICK && resultCode == RESULT_OK){
-            //val imageBitmap = data?.extras?.get("data") as Bitmap
-            //imageView.setImageBitmap(imageBitmap)
             imageView.setImageURI(data?.data)
         }
     }
