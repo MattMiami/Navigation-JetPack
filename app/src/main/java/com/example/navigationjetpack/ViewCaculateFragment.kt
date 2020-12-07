@@ -33,6 +33,7 @@ class ViewCaculateFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        try {
         var uno = et1.text.toString()
         var dos = et2.text.toString()
         var num1 = uno.toDouble()
@@ -42,9 +43,7 @@ class ViewCaculateFragment : Fragment(), View.OnClickListener {
         when(v!!.id){
             R.id.btCalcular -> {
 
-                if(!rbSumar.isChecked || !rbRestar.isChecked || !rbDividir.isChecked){
-                    Toast.makeText(context, "Inserta los números y presiona calcular",Toast.LENGTH_SHORT).show()
-                }else {
+
                     if (rbSumar.isChecked) {
                         val bundle = Bundle()
                         resultado = num1 + num2
@@ -64,15 +63,12 @@ class ViewCaculateFragment : Fragment(), View.OnClickListener {
                         resultado = num1 / num2
                         bundle.putDouble("div", resultado)
                         navController!!.navigate(R.id.gotoDiv, bundle)
-
                     }
-
                 }
-
             }
-
+        }catch (n:NumberFormatException){
+            Toast.makeText(context,"No dejes campos en blanco", Toast.LENGTH_LONG).show()
         }
     }
-
 
 }
